@@ -1,0 +1,17 @@
+{
+  "name": "elaro-website",
+  "version": "1.0.0",
+  "description": "ELARO - Never Forget website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "echo 'No build step needed for vanilla HTML/CSS/JS'",
+    "preview": "npx serve . -p 4173"
+  },
+  "keywords": ["elaro", "website", "vanilla"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
