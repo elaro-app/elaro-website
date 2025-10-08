@@ -15,19 +15,28 @@
 
     <header class="site-header">
         <div class="container">
-            <p class="wordmark">ELARO</p>
+            <a href="index.html" class="wordmark-link"><p class="wordmark">ELARO</p></a>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="container hero-container">
-                <h1 class="hero-text-static">Never forget to...</h1>
+                <!-- Standard Headline for Scenes 1-3 -->
+                <div id="headline-standard">
+                    <h1 class="hero-text-static">Never forget to...</h1>
+                </div>
+
+                <!-- Finale Headline for Scene 4 (initially hidden) -->
+                <div id="headline-finale" style="display: none;">
+                    <h1 class="hero-text-static" id="finale-line-1">We handle the remembering</h1>
+                    <h2 class="hero-text-dynamic" id="finale-line-2">so you can focus on the learning.</h2>
+                </div>
                 
                 <div id="dynamic-content" class="dynamic-content-wrapper">
                     <h2 id="dynamic-text" class="hero-text-dynamic"></h2>
                     <div class="image-wrapper">
-                        <img id="dynamic-image" src="" alt="ELARO app notification screenshot">
+                        <img id="dynamic-image" src="" alt="ELARO app feature illustration">
                     </div>
                 </div>
 
@@ -38,11 +47,10 @@
 
     <footer class="site-footer">
         <div class="container footer-container">
-            <p class="wordmark-footer">ELARO</p>
+            <a href="index.html" class="wordmark-link"><p class="wordmark-footer">ELARO</p></a>
             <div class="footer-links">
-                <a href="#">How ELARO works</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
+                <a href="coming-soon.html">Terms of Service</a>
+                <a href="coming-soon.html">Privacy Policy</a>
             </div>
         </div>
     </footer>
