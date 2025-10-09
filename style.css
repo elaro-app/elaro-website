@@ -285,6 +285,11 @@ main {
 
 /* Mobile Media Query */
 @media (max-width: 768px) {
+    /* Add breathing room between header and hero content on mobile */
+    .hero {
+        padding-top: 50px;
+    }
+    
     .footer-container {
         flex-direction: column;
         text-align: center;
@@ -302,8 +307,23 @@ main {
     }
     
     /* Increase hero text font size on mobile */
-    .hero-text-static, .hero-text-dynamic {
-        font-size: 1.8rem; /* Increased from default */
+    .hero-text-static {
+        font-size: 1.7rem; /* Update from 1.8rem */
+    }
+    
+    /* Make standard dynamic text larger and more prominent */
+    #dynamic-text {
+        font-size: 2.2rem;
+        font-weight: 900;
+    }
+    
+    /* Reduce finale text sizes to fit better */
+    #finale-line-1 {
+        font-size: 1.7rem; /* Match the static text size */
+    }
+    #finale-line-2 {
+        font-size: 2.0rem; /* Slightly smaller than standard dynamic text */
+        font-weight: 900;
     }
 
     /* Adjust image position and size */
@@ -320,6 +340,11 @@ main {
     }
     
     /* --- Final Mobile Optimization --- */
+    /* Set a minimum height to prevent layout shifts during animations */
+    .dynamic-content-wrapper {
+        min-height: 300px;
+    }
+    
     /* This adjusts the image box height for smaller screens. */
     .image-wrapper {
         height: 220px; /* Reduced from 250px */
@@ -349,5 +374,22 @@ main {
     .content-page-wrapper .step,
     .content-page-wrapper .plan {
         padding: 1rem;
+    }
+    
+    /* Individual image styling based on scene classes */
+    /* Default subtle zoom for most images to make them a bit larger */
+    .scene-revise #dynamic-image,
+    .scene-lecture #dynamic-image {
+        transform: scale(1.15);
+    }
+
+    /* Special "zoom and pan" for the 'submit' image */
+    .scene-submit #dynamic-image {
+        transform: scale(1.6) translateY(-15px); /* Zoom in significantly and move it up */
+    }
+
+    /* The 'focus' image is already large, so we can leave it as is or scale it down slightly if needed */
+    .scene-focus #dynamic-image {
+        transform: scale(1.0); /* Explicitly set to no zoom */
     }
 }

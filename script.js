@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Element References ---
+    const body = document.body;
     const headlineStandard = document.getElementById('headline-standard');
     const headlineFinale = document.getElementById('headline-finale');
     const finaleLine1 = document.getElementById('finale-line-1');
@@ -62,11 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function cycleScenes() {
+        // Remove any existing scene classes from the body
+        body.classList.remove('scene-revise', 'scene-submit', 'scene-lecture', 'scene-focus');
+        
         currentSceneIndex = (currentSceneIndex + 1) % scenes.length;
+        
+        // Add the new class based on the current scene's image name
+        const sceneName = scenes[currentSceneIndex].image.split('.')[0].toLowerCase(); // e.g., "revise", "submit"
+        body.classList.add(`scene-${sceneName}`);
+        
         playScene(scenes[currentSceneIndex]);
     }
 
     // --- Initialization ---
+    // Add initial scene class to body
+    const initialSceneName = scenes[0].image.split('.')[0].toLowerCase();
+    body.classList.add(`scene-${initialSceneName}`);
+    
     playScene(scenes[0]); // Play the first scene immediately
     setInterval(cycleScenes, sceneDuration); // Start the cycle
 });
