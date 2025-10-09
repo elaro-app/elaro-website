@@ -301,6 +301,24 @@ main {
         margin-left: 0;
     }
     
+    /* Increase hero text font size on mobile */
+    .hero-text-static, .hero-text-dynamic {
+        font-size: 1.8rem; /* Increased from default */
+    }
+
+    /* Adjust image position and size */
+    .hero-image-container {
+        margin-top: 20px; /* Pushes the image down */
+    }
+    .hero-image-container img {
+        max-width: 80%; /* Slightly increases image size relative to container */
+    }
+
+    /* Adjust button position */
+    .cta-button {
+        margin-top: 40px; /* Pushes the button down */
+    }
+    
     /* --- Final Mobile Optimization --- */
     /* This adjusts the image box height for smaller screens. */
     .image-wrapper {
