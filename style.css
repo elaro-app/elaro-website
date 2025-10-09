@@ -349,7 +349,7 @@ main {
     /* --- Final Mobile Optimization --- */
     /* Set a minimum height to prevent layout shifts during animations */
     .dynamic-content-wrapper {
-        min-height: 300px;
+        min-height: 420px; /* Increased from 300px to accommodate the tallest scene */
     }
     
     /* This adjusts the image box height for smaller screens. */
@@ -387,12 +387,12 @@ main {
     /* Default subtle zoom for most images to make them a bit larger */
     .scene-revise #dynamic-image,
     .scene-lecture #dynamic-image {
-        transform: scale(1.15);
+        transform: scale(1.15) translateY(10px); /* Added translateY to move it down */
     }
 
     /* Special "zoom and pan" for the 'submit' image */
     .scene-submit #dynamic-image {
-        transform: scale(1.6) translateY(-15px); /* Zoom in significantly and move it up */
+        transform: scale(1.6) translateY(10px); /* Zoom in significantly and move it down */
     }
 
     /* The 'focus' image is already large, so we can leave it as is or scale it down slightly if needed */
