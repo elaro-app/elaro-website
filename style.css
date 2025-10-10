@@ -347,7 +347,8 @@ main {
 
     /* Adjust button position */
     .cta-button {
-        margin-top: 20px; /* A small margin for spacing */
+        margin-top: 40px; /* Increased slightly for better spacing */
+        align-self: center; /* Add this line to stop it from stretching */
     }
     
     /* --- Final Mobile Optimization --- */
