@@ -294,7 +294,10 @@ main {
     .hero-container {
         padding-left: 15px;
         padding-right: 15px;
-        height: 550px; /* Add this line to create a stable box */
+        height: 600px; /* A generous fixed height for the container */
+        display: flex; /* Enable Flexbox */
+        flex-direction: column; /* Stack children vertically */
+        justify-content: space-between; /* Push content to top and button to bottom */
     }
     
     .footer-container {
@@ -344,7 +347,7 @@ main {
 
     /* Adjust button position */
     .cta-button {
-        margin-top: 20px; /* Reduced from 40px */
+        margin-top: 20px; /* A small margin for spacing */
     }
     
     /* --- Final Mobile Optimization --- */
