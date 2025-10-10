@@ -294,6 +294,7 @@ main {
     .hero-container {
         padding-left: 15px;
         padding-right: 15px;
+        height: 550px; /* Add this line to create a stable box */
     }
     
     .footer-container {
@@ -343,13 +344,13 @@ main {
 
     /* Adjust button position */
     .cta-button {
-        margin-top: 40px; /* Pushes the button down */
+        margin-top: 20px; /* Reduced from 40px */
     }
     
     /* --- Final Mobile Optimization --- */
     /* Set a minimum height to prevent layout shifts during animations */
     .dynamic-content-wrapper {
-        min-height: 420px; /* Increased from 300px to accommodate the tallest scene */
+        /* min-height: 420px; */ /* This line should be removed */
     }
     
     /* This adjusts the image box height for smaller screens. */
