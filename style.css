@@ -80,29 +80,47 @@ main {
     margin-top: 10px;
 }
 
-.dynamic-content-wrapper {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+/* Reset all scene-specific transforms to prevent jiggle */
+.scene-revise #dynamic-image,
+.scene-submit #dynamic-image,
+.scene-lecture #dynamic-image,
+.scene-focus #dynamic-image {
+    transform: none; /* Remove all transforms to prevent jiggle */
 }
 
-/* Reducing the image box height to bring the CTA button up. */
+.dynamic-content-wrapper {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Shorter transition to match image */
+    will-change: opacity; /* Optimize for opacity changes */
+}
+
+/* Improve the image wrapper for stable positioning */
 .image-wrapper {
-    margin-top: 20px; /* Reduced margin */
+    margin-top: 20px;
     position: relative;
-    height: 280px; /* Reduced from 320px */
+    height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    /* Add these properties for stability */
+    overflow: hidden; /* Prevent any overflow during transitions */
+    will-change: opacity; /* Optimize for opacity-only animations */
 }
 
-/* This ensures the image fits neatly inside the new box. */
+/* Ensure the image itself is stable */
 #dynamic-image {
-    max-width: 100%; /* Allow it to fill the container horizontally if needed */
-    max-height: 100%; /* Ensure it never overflows the container's fixed height */
-    width: auto; /* Let the height determine the width to maintain aspect ratio */
-    object-fit: contain; /* Ensures the image scales correctly without being cropped or stretched */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* Add these for smooth transitions */
+    transition: opacity 0.3s ease-in-out; /* Shorter, snappier transition */
+    will-change: opacity; /* Optimize for opacity changes only */
+    /* Ensure no transforms are applied */
+    transform: none !important;
 }
 
 /* Reducing the CTA button's top margin. */
@@ -357,9 +375,10 @@ main {
         /* min-height: 420px; */ /* This line should be removed */
     }
     
-    /* This adjusts the image box height for smaller screens. */
     .image-wrapper {
-        height: 220px; /* Reduced from 250px */
+        height: 220px;
+        /* Ensure mobile stability */
+        min-height: 220px; /* Prevent height changes */
     }
     
     /* Mobile styles for content page */
@@ -388,20 +407,11 @@ main {
         padding: 1rem;
     }
     
-    /* Individual image styling based on scene classes */
-    /* Default subtle zoom for most images to make them a bit larger */
+    /* Reset all scene-specific transforms to prevent jiggle */
     .scene-revise #dynamic-image,
-    .scene-lecture #dynamic-image {
-        transform: scale(1.15) translateY(10px); /* Added translateY to move it down */
-    }
-
-    /* Special "zoom and pan" for the 'submit' image */
-    .scene-submit #dynamic-image {
-        transform: scale(1.6) translateY(10px); /* Zoom in significantly and move it down */
-    }
-
-    /* The 'focus' image is already large, so we can leave it as is or scale it down slightly if needed */
+    .scene-submit #dynamic-image,
+    .scene-lecture #dynamic-image,
     .scene-focus #dynamic-image {
-        transform: scale(1.0); /* Explicitly set to no zoom */
+        transform: none !important; /* Override any existing transforms */
     }
 }

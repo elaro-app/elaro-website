@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     dynamicContentWrapper.style.opacity = 1;
                 }, 1500); // 1.5-second pause
             }
-        }, 500); // 0.5s fade-out time
+        }, 300); // The timeout value has been changed from 500 to 300.
     }
 
     function cycleScenes() {
