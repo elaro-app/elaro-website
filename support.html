@@ -323,9 +323,14 @@
             e.preventDefault(); // Prevent default link behavior
             isSignUpMode = !isSignUpMode;
 
-            // Toggle visibility of name fields
-            nameGroup.style.display = isSignUpMode ? 'block' : 'none';
-            lastNameGroup.style.display = isSignUpMode ? 'block' : 'none';
+            // Toggle visibility of name fields by adding/removing the 'hidden' class
+            if (isSignUpMode) {
+                nameGroup.classList.remove('hidden');
+                lastNameGroup.classList.remove('hidden');
+            } else {
+                nameGroup.classList.add('hidden');
+                lastNameGroup.classList.add('hidden');
+            }
             
             // Set 'required' attribute only when in sign-up mode
             document.getElementById('first_name').required = isSignUpMode;
