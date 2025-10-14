@@ -295,14 +295,14 @@
             <div id="success-message"></div>
             <div id="loader"></div>
 
-            <a class="toggle-link" id="toggle-mode">Don't have an account? Sign Up</a>
+            <p class="toggle-link" id="toggle-mode">Don't have an account? <span style="text-decoration: underline;">Sign Up</span></p>
         </div>
     </main>
 
     <script>
         // Supabase Configuration - Replace with your actual credentials
-        const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; // Replace with your EXPO_PUBLIC_SUPABASE_URL value
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; // Replace with your EXPO_PUBLIC_SUPABASE_ANON_KEY value
+        const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; 
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; 
 
         const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -320,17 +320,26 @@
 
         // Toggle between sign in and sign up modes
         toggleModeLink.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default link behavior
             isSignUpMode = !isSignUpMode;
+
+            // Toggle visibility of name fields
+            nameGroup.style.display = isSignUpMode ? 'block' : 'none';
+            lastNameGroup.style.display = isSignUpMode ? 'block' : 'none';
             
-            nameGroup.classList.toggle('hidden', !isSignUpMode);
-            lastNameGroup.classList.toggle('hidden', !isSignUpMode);
+            // Set 'required' attribute only when in sign-up mode
             document.getElementById('first_name').required = isSignUpMode;
 
-            submitButton.textContent = isSignUpMode ? 'Create Account' : 'Sign In';
-            toggleModeLink.textContent = isSignUpMode ? 'Already have an account? Sign In' : "Don't have an account? Sign Up";
-            
-            // Clear any existing messages
+            // Update button and link text
+            if (isSignUpMode) {
+                submitButton.textContent = 'Create Account';
+                toggleModeLink.innerHTML = 'Already have an account? <span style="text-decoration: underline;">Sign In</span>';
+            } else {
+                submitButton.textContent = 'Sign In';
+                toggleModeLink.innerHTML = "Don't have an account? <span style='text-decoration: underline;'>Sign Up</span>";
+            }
+
+            // Hide any previous error messages
             errorMessageDiv.style.display = 'none';
             successMessageDiv.style.display = 'none';
         });
