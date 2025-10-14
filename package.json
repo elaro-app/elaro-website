@@ -5,13 +5,21 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx serve . -p 3000",
-    "build": "echo 'No build step needed for vanilla HTML/CSS/JS'",
+    "build": "node build.js",
+    "build:serve": "npm run build && npx serve . -p 4173",
     "preview": "npx serve . -p 4173"
   },
-  "keywords": ["elaro", "website", "vanilla"],
+  "keywords": [
+    "elaro",
+    "website",
+    "vanilla"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "serve": "^14.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }

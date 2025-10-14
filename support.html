@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELARO Support</title>
+    <meta name="description" content="Get secure, personalized support from the ELARO team. Sign in to access your dedicated support chat.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myelaro.com/support.html">
+    <meta property="og:title" content="ELARO Support - Secure Chat">
+    <meta property="og:description" content="Get secure, personalized support from the ELARO team.">
+    <meta property="og:image" content="https://myelaro.com/focus2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://myelaro.com/support.html">
+    <meta property="twitter:title" content="ELARO Support - Secure Chat">
+    <meta property="twitter:description" content="Get secure, personalized support from the ELARO team.">
+    <meta property="twitter:image" content="https://myelaro.com/focus2.png">
+
+    <!-- Link to Google Fonts for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        :root {
+            --elaro-blue: #007AFF;
+            --elaro-black: #000000;
+            --elaro-white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(
+                to bottom,
+                var(--elaro-white) 90%,
+                #e6f2ff 100%
+            );
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 20px 0;
+            background-color: var(--elaro-white);
+            border-bottom: 1px solid rgba(0, 122, 255, 0.1);
+        }
+
+        .wordmark {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--elaro-blue);
+            margin: 0;
+        }
+
+        .wordmark-link {
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .support-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .support-container h1 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--elaro-black);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .support-container p {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--elaro-black);
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--elaro-blue);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background-color: var(--elaro-blue);
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+        }
+
+        .button:disabled {
+            background-color: #a0c8ff;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .toggle-link {
+            color: var(--elaro-blue);
+            cursor: pointer;
+            margin-top: 24px;
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        #error-message {
+            color: #FF3B30;
+            margin-top: 16px;
+            font-weight: 600;
+            display: none;
+            padding: 12px;
+            background-color: #ffeaea;
+            border-radius: 8px;
+            border: 1px solid #ffcccb;
+        }
+
+        #success-message {
+            color: #34C759;
+            margin-top: 16px;
+            font-weight: 600;
+            display: none;
+            padding: 12px;
+            background-color: #eafaf1;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+        }
+
+        #loader {
+            display: none;
+            margin-top: 20px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--elaro-blue);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .support-container {
+                padding: 30px 24px;
+                margin: 20px;
+                max-width: none;
+            }
+
+            .support-container h1 {
+                font-size: 28px;
+            }
+
+            .support-container p {
+                font-size: 15px;
+            }
+
+            .input-group input {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            .button {
+                padding: 14px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="wordmark-link">
+                <p class="wordmark">ELARO</p>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="support-container" id="auth-container">
+            <h1>Access Support</h1>
+            <p>Please sign in or create an account to start a secure chat with our support team.</p>
+            
+            <form id="auth-form">
+                <div class="input-group hidden" id="name-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" placeholder="Enter your first name" required>
+                </div>
+                
+                <div class="input-group hidden" id="last-name-group">
+                    <label for="last_name">Last Name (Optional)</label>
+                    <input type="text" id="last_name" placeholder="Enter your last name">
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="button" id="submit-button">Sign In</button>
+            </form>
+
+            <div id="error-message"></div>
+            <div id="success-message"></div>
+            <div id="loader"></div>
+
+            <a class="toggle-link" id="toggle-mode">Don't have an account? Sign Up</a>
+        </div>
+    </main>
+
+    <script>
+        // Supabase Configuration - Replace with your actual credentials
+        const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; // Replace with your EXPO_PUBLIC_SUPABASE_URL value
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; // Replace with your EXPO_PUBLIC_SUPABASE_ANON_KEY value
+
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const authForm = document.getElementById('auth-form');
+        const submitButton = document.getElementById('submit-button');
+        const toggleModeLink = document.getElementById('toggle-mode');
+        const nameGroup = document.getElementById('name-group');
+        const lastNameGroup = document.getElementById('last-name-group');
+        const errorMessageDiv = document.getElementById('error-message');
+        const successMessageDiv = document.getElementById('success-message');
+        const loader = document.getElementById('loader');
+        const authContainer = document.getElementById('auth-container');
+
+        let isSignUpMode = false;
+
+        // Toggle between sign in and sign up modes
+        toggleModeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            isSignUpMode = !isSignUpMode;
+            
+            nameGroup.classList.toggle('hidden', !isSignUpMode);
+            lastNameGroup.classList.toggle('hidden', !isSignUpMode);
+            document.getElementById('first_name').required = isSignUpMode;
+
+            submitButton.textContent = isSignUpMode ? 'Create Account' : 'Sign In';
+            toggleModeLink.textContent = isSignUpMode ? 'Already have an account? Sign In' : "Don't have an account? Sign Up";
+            
+            // Clear any existing messages
+            errorMessageDiv.style.display = 'none';
+            successMessageDiv.style.display = 'none';
+        });
+
+        // Handle form submission
+        authForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            // Show loading state
+            submitButton.disabled = true;
+            loader.style.display = 'block';
+            errorMessageDiv.style.display = 'none';
+            successMessageDiv.style.display = 'none';
+
+            const firstName = document.getElementById('first_name').value.trim();
+            const lastName = document.getElementById('last_name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                let authResponse;
+                
+                if (isSignUpMode) {
+                    // Sign up new user
+                    authResponse = await supabase.auth.signUp({
+                        email,
+                        password,
+                        options: { 
+                            data: { 
+                                first_name: firstName, 
+                                last_name: lastName || null 
+                            } 
+                        }
+                    });
+                } else {
+                    // Sign in existing user
+                    authResponse = await supabase.auth.signInWithPassword({ 
+                        email, 
+                        password 
+                    });
+                }
+
+                if (authResponse.error) {
+                    throw authResponse.error;
+                }
+
+                // Check if user is authenticated
+                const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+                if (sessionError) throw sessionError;
+                if (!session) throw new Error('Authentication failed. Please check your credentials.');
+
+                // Show success message
+                successMessageDiv.textContent = 'Authentication successful! Getting your secure chat link...';
+                successMessageDiv.style.display = 'block';
+
+                // Call the get-secure-chat-link function
+                const { data: functionData, error: functionError } = await supabase.functions.invoke('get-secure-chat-link');
+                if (functionError) throw functionError;
+
+                if (functionData && functionData.secureUrl) {
+                    // Update UI and redirect
+                    authContainer.innerHTML = `
+                        <h1>Success!</h1>
+                        <p>Redirecting you to your secure support chat...</p>
+                        <div id="loader" style="display: block;"></div>
+                    `;
+                    
+                    // Small delay for better UX
+                    setTimeout(() => {
+                        window.location.href = functionData.secureUrl;
+                    }, 1500);
+                } else {
+                    throw new Error('Could not retrieve secure chat link. Please try again.');
+                }
+
+            } catch (error) {
+                console.error('Authentication error:', error);
+                errorMessageDiv.textContent = error.message || 'An unexpected error occurred. Please try again.';
+                errorMessageDiv.style.display = 'block';
+            } finally {
+                // Reset loading state
+                submitButton.disabled = false;
+                loader.style.display = 'none';
+            }
+        });
+
+        // Check if user is already authenticated
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (session) {
+                // User is already signed in, try to get chat link immediately
+                supabase.functions.invoke('get-secure-chat-link').then(({ data, error }) => {
+                    if (!error && data && data.secureUrl) {
+                        authContainer.innerHTML = `
+                            <h1>Welcome back!</h1>
+                            <p>Redirecting you to your support chat...</p>
+                            <div id="loader" style="display: block;"></div>
+                        `;
+                        setTimeout(() => {
+                            window.location.href = data.secureUrl;
+                        }, 1000);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
