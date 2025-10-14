@@ -300,7 +300,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Supabase Configuration - Replace with your actual credentials
+            
             const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; 
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; 
 
@@ -316,12 +316,24 @@
         const loader = document.getElementById('loader');
         const authContainer = document.getElementById('auth-container');
 
+        // Debug logging
+        console.log('DOM elements found:', {
+            authForm: !!authForm,
+            submitButton: !!submitButton,
+            toggleModeLink: !!toggleModeLink,
+            nameGroup: !!nameGroup,
+            lastNameGroup: !!lastNameGroup
+        });
+
         let isSignUpMode = false;
 
         // Toggle between sign in and sign up modes
-        toggleModeLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default link behavior
-            isSignUpMode = !isSignUpMode;
+        if (toggleModeLink) {
+            console.log('Adding event listener to toggle link');
+            toggleModeLink.addEventListener('click', (e) => {
+                console.log('Toggle link clicked!', isSignUpMode);
+                e.preventDefault(); // Prevent default link behavior
+                isSignUpMode = !isSignUpMode;
 
             // Toggle visibility of name fields by adding/removing the 'hidden' class
             if (isSignUpMode) {
@@ -344,10 +356,13 @@
                 toggleModeLink.innerHTML = "Don't have an account? <span style='text-decoration: underline;'>Sign Up</span>";
             }
 
-            // Hide any previous error messages
-            errorMessageDiv.style.display = 'none';
-            successMessageDiv.style.display = 'none';
-        });
+                    // Hide any previous error messages
+                    errorMessageDiv.style.display = 'none';
+                    successMessageDiv.style.display = 'none';
+                });
+            } else {
+            console.error('Toggle link element not found!');
+        }
 
         // Handle form submission
         authForm.addEventListener('submit', async (event) => {
