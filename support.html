@@ -178,7 +178,6 @@
 
         .toggle-link:hover {
             color: #0056b3;
-            text-decoration: underline;
         }
 
         #error-message {
@@ -295,16 +294,17 @@
             <div id="success-message"></div>
             <div id="loader"></div>
 
-            <p class="toggle-link" id="toggle-mode">Don't have an account? <span style="text-decoration: underline;">Sign Up</span></p>
+            <a class="toggle-link" id="toggle-mode" href="#">Don't have an account? <span style="text-decoration: underline;">Sign Up</span></a>
         </div>
     </main>
 
     <script>
-        // Supabase Configuration - Replace with your actual credentials
-        const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; 
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Supabase Configuration - Replace with your actual credentials
+            const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; 
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; 
 
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         const authForm = document.getElementById('auth-form');
         const submitButton = document.getElementById('submit-button');
@@ -449,6 +449,7 @@
                 });
             }
         });
+        }); // Close DOMContentLoaded function
     </script>
 </body>
 </html>
