@@ -304,7 +304,7 @@
             const SUPABASE_URL = 'https://oqwyoucchbjiyddnznwf.supabase.co'; 
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xd3lvdWNjaGJqaXlkZG56bndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3MTg4NDEsImV4cCI6MjA2NTI5NDg0MX0.yR0foTKZM4sz4XZzG0geRm7MA_GqxFrz9W7G-Nu0-PY'; 
 
-            const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         const authForm = document.getElementById('auth-form');
         const submitButton = document.getElementById('submit-button');
@@ -384,7 +384,7 @@
                 
                 if (isSignUpMode) {
                     // Sign up new user
-                    authResponse = await supabase.auth.signUp({
+                    authResponse = await supabaseClient.auth.signUp({
                         email,
                         password,
                         options: { 
@@ -396,7 +396,7 @@
                     });
                 } else {
                     // Sign in existing user
-                    authResponse = await supabase.auth.signInWithPassword({ 
+                    authResponse = await supabaseClient.auth.signInWithPassword({ 
                         email, 
                         password 
                     });
@@ -407,7 +407,7 @@
                 }
 
                 // Check if user is authenticated
-                const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+                const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
                 if (sessionError) throw sessionError;
                 if (!session) throw new Error('Authentication failed. Please check your credentials.');
 
@@ -416,7 +416,7 @@
                 successMessageDiv.style.display = 'block';
 
                 // Call the get-secure-chat-link function
-                const { data: functionData, error: functionError } = await supabase.functions.invoke('get-secure-chat-link');
+                const { data: functionData, error: functionError } = await supabaseClient.functions.invoke('get-secure-chat-link');
                 if (functionError) throw functionError;
 
                 if (functionData && functionData.secureUrl) {
@@ -447,10 +447,10 @@
         });
 
         // Check if user is already authenticated
-        supabase.auth.getSession().then(({ data: { session } }) => {
+        supabaseClient.auth.getSession().then(({ data: { session } }) => {
             if (session) {
                 // User is already signed in, try to get chat link immediately
-                supabase.functions.invoke('get-secure-chat-link').then(({ data, error }) => {
+                supabaseClient.functions.invoke('get-secure-chat-link').then(({ data, error }) => {
                     if (!error && data && data.secureUrl) {
                         authContainer.innerHTML = `
                             <h1>Welcome back!</h1>
