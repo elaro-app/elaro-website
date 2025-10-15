@@ -186,6 +186,72 @@ main {
 .coming-soon-container {
     text-align: center;
 }
+
+/* Legal Content Styles */
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.legal-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--elaro-blue);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.legal-container h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.legal-container h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.legal-container p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.legal-container ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.legal-container li {
+    margin-bottom: 8px;
+}
+
+.legal-container hr {
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 30px 0;
+}
+
+.legal-container a {
+    color: var(--elaro-blue);
+    text-decoration: none;
+}
+
+.legal-container a:hover {
+    text-decoration: underline;
+}
+
+.legal-container strong {
+    font-weight: 600;
+}
 .coming-soon-container h1 {
     font-size: 5vw;
     max-font-size: 50px;
