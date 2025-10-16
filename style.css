@@ -143,7 +143,7 @@ main {
 
 /* The footer now has its own solid background again, guaranteeing crisp text. */
 .site-footer {
-    background: linear-gradient(to bottom, transparent, var(--elaro-blue) 70%); /* Replace background-color */
+    background: linear-gradient(to bottom, transparent, var(--elaro-blue) 50%); /* Replace background-color */
     color: var(--elaro-white);
     padding: 40px 0;
     position: relative;
