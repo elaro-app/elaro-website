@@ -377,27 +377,9 @@ main {
     padding: 2rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 12px;
-    border: 2px solid #e0e0e0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     counter-increment: step-counter;
-}
-
-.content-page-wrapper .step::before {
-    content: counter(step-counter);
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: var(--elaro-blue);
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-right: 15px;
-    float: left;
-    margin-top: -5px;
 }
 
 .content-page-wrapper .step:hover {
@@ -410,22 +392,18 @@ main {
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 12px;
-    border: 2px solid #e0e0e0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content-page-wrapper .plan:nth-child(1) {
-    border-color: #ffc107;
     background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);
 }
 
 .content-page-wrapper .plan:nth-child(2) {
-    border-color: #28a745;
     background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
 }
 
 .content-page-wrapper .plan:nth-child(3) {
-    border-color: var(--elaro-blue);
     background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
     box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
 }
@@ -436,22 +414,9 @@ main {
 }
 
 .content-page-wrapper section:last-child {
-    background: linear-gradient(135deg, var(--elaro-blue) 0%, #0056b3 100%);
-    color: white;
     padding: 3rem 2rem;
-    border-radius: 16px;
     text-align: center;
     margin-top: 4rem;
-}
-
-.content-page-wrapper section:last-child h2,
-.content-page-wrapper section:last-child h3,
-.content-page-wrapper section:last-child p {
-    color: white;
-}
-
-.content-page-wrapper section:last-child strong {
-    color: white;
 }
 
 .content-page-wrapper hr {
@@ -585,13 +550,6 @@ main {
         margin-left: -15px;
         margin-right: -15px;
         border-radius: 0;
-    }
-    
-    .content-page-wrapper .step::before {
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        font-size: 1rem;
     }
     
     /* Reset all scene-specific transforms to prevent jiggle */
