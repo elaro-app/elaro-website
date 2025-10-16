@@ -143,7 +143,7 @@ main {
 
 /* The footer now has its own solid background again, guaranteeing crisp text. */
 .site-footer {
-    background: linear-gradient(to bottom, transparent, var(--elaro-blue) 30%); /* Replace background-color */
+    background: linear-gradient(to bottom, transparent, var(--elaro-blue) 70%); /* Replace background-color */
     color: var(--elaro-white);
     padding: 40px 0;
     position: relative;
@@ -154,6 +154,20 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--elaro-white);
+    opacity: 0.9;
 }
 
 .wordmark-footer {
@@ -292,6 +306,9 @@ main {
     margin: 0 auto;
     padding: 80px 20px;
     font-family: 'Inter', sans-serif;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.03) 0%, transparent 50%);
 }
 
 .content-page-wrapper h1 {
@@ -303,17 +320,17 @@ main {
 }
 
 .content-page-wrapper h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 900;
     color: var(--elaro-black);
-    margin-top: 3rem;
+    margin-top: 4rem;
     margin-bottom: 1.5rem;
     line-height: 1.3;
 }
 
 .content-page-wrapper h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--elaro-blue);
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -338,16 +355,103 @@ main {
 }
 
 .content-page-wrapper section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
-.content-page-wrapper .step,
+.content-page-wrapper section::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--elaro-blue);
+    margin: 3rem auto 0;
+    border-radius: 2px;
+}
+
+.content-page-wrapper section:last-child::after {
+    display: none;
+}
+
+.content-page-wrapper .step {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    counter-increment: step-counter;
+}
+
+.content-page-wrapper .step::before {
+    content: counter(step-counter);
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: var(--elaro-blue);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    float: left;
+    margin-top: -5px;
+}
+
+.content-page-wrapper .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.1);
+}
+
 .content-page-wrapper .plan {
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid var(--elaro-blue);
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-page-wrapper .plan:nth-child(1) {
+    border-color: #ffc107;
+    background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);
+}
+
+.content-page-wrapper .plan:nth-child(2) {
+    border-color: #28a745;
+    background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+}
+
+.content-page-wrapper .plan:nth-child(3) {
+    border-color: var(--elaro-blue);
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+}
+
+.content-page-wrapper .plan:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.1);
+}
+
+.content-page-wrapper section:last-child {
+    background: linear-gradient(135deg, var(--elaro-blue) 0%, #0056b3 100%);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.content-page-wrapper section:last-child h2,
+.content-page-wrapper section:last-child h3,
+.content-page-wrapper section:last-child p {
+    color: white;
+}
+
+.content-page-wrapper section:last-child strong {
+    color: white;
 }
 
 .content-page-wrapper hr {
@@ -365,6 +469,13 @@ main {
 .content-page-wrapper em {
     font-style: italic;
     color: #666;
+}
+
+.content-page-wrapper .subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666;
+    font-style: italic;
 }
 
 /* Mobile Media Query */
@@ -470,7 +581,17 @@ main {
     
     .content-page-wrapper .step,
     .content-page-wrapper .plan {
-        padding: 1rem;
+        padding: 1.5rem;
+        margin-left: -15px;
+        margin-right: -15px;
+        border-radius: 0;
+    }
+    
+    .content-page-wrapper .step::before {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1rem;
     }
     
     /* Reset all scene-specific transforms to prevent jiggle */
