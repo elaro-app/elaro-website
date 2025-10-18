@@ -181,14 +181,33 @@
         }
 
         #error-message {
-            color: #FF3B30;
+            color: white;
             margin-top: 16px;
             font-weight: 600;
             display: none;
-            padding: 12px;
-            background-color: #ffeaea;
+            padding: 15px 20px;
+            background-color: #dc3545;
             border-radius: 8px;
-            border: 1px solid #ffcccb;
+            border: 1px solid #c82333;
+        }
+
+        #error-message ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 10px 0 0 0;
+        }
+
+        #error-message li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        #error-message li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
         #success-message {
@@ -437,7 +456,22 @@
 
             } catch (error) {
                 console.error('Authentication error:', error);
-                errorMessageDiv.textContent = error.message || 'An unexpected error occurred. Please try again.';
+                let errorMessage = error.message || 'An unexpected error occurred. Please try again.';
+                
+                // Format password validation errors into readable bullet points
+                if (error.message && error.message.includes('Password should contain')) {
+                    errorMessage = '<strong>Password Requirements:</strong><ul>';
+                    const parts = error.message.split(',').map(p => p.trim());
+                    parts.forEach(part => {
+                        if (part.includes(':')) {
+                            const [label, chars] = part.split(':').map(p => p.trim());
+                            errorMessage += `<li><strong>${label}:</strong> ${chars}</li>`;
+                        }
+                    });
+                    errorMessage += '</ul>';
+                }
+                
+                errorMessageDiv.innerHTML = errorMessage;
                 errorMessageDiv.style.display = 'block';
             } finally {
                 // Reset loading state
