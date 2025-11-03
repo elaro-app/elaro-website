@@ -77,8 +77,8 @@ main {
 
 /* Visible state - triggered by Intersection Observer */
 .feature-section.visible {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1 !important;
+    transform: translateX(0) !important;
 }
 
 .section-container {
