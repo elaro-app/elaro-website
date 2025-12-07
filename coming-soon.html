@@ -74,6 +74,7 @@
             white-space: nowrap;
             word-wrap: normal;
             direction: ltr;
+            font-feature-settings: 'liga';
             -webkit-font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
@@ -84,7 +85,7 @@
     <header class="w-full py-4 px-4 sm:px-6 lg:px-8 z-10">
         <div class="container mx-auto flex justify-between items-center">
             <a class="text-3xl font-bold text-text-light dark:text-text-dark" href="index.html">ELARO</a>
-            <button aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+            <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                 <span class="material-symbols-outlined text-muted-light dark:text-muted-dark">dark_mode</span>
             </button>
         </div>
@@ -116,5 +117,38 @@
             <p class="text-sm">Copyright © 2025 ELARO. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        // Check for saved theme preference or default to light mode
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const htmlElement = document.documentElement;
+        const toggleButton = document.getElementById('theme-toggle');
+        const iconSpan = toggleButton.querySelector('span');
+        
+        // Apply saved theme on page load
+        if (savedTheme === 'dark') {
+            htmlElement.classList.remove('light');
+            htmlElement.classList.add('dark');
+            iconSpan.textContent = 'light_mode';
+        } else {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            iconSpan.textContent = 'dark_mode';
+        }
+        
+        // Theme toggle logic
+        toggleButton.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                iconSpan.textContent = 'dark_mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                iconSpan.textContent = 'light_mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
