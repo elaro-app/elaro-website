@@ -19,26 +19,102 @@
     <meta property="twitter:title" content="ELARO is Coming Soon">
     <meta property="twitter:description" content="Get ready for ELARO, the intelligent study assistant that ensures you never forget.">
     <meta property="twitter:image" content="https://myelaro.com/focus.png">
-    <!-- Link to Google Fonts for Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Link to the main stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d8cf8",
+                        "primary-hover": "#1670c7",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#0f172a",
+                        "text-light": "#1e293b",
+                        "text-dark": "#e2e8f0",
+                        "muted-light": "#64748b",
+                        "muted-dark": "#94a3b8",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#334155"
+                    },
+                    fontFamily: {
+                        sans: ['Sora', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "1rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .bg-gradient-blur {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(circle at 50% 100%, rgba(29, 140, 248, 0.1), transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
 </head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="wordmark-link"><p class="wordmark">ELARO</p></a>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans min-h-screen flex flex-col relative overflow-hidden transition-colors duration-300">
+    <div class="bg-gradient-blur"></div>
+    <header class="w-full py-4 px-4 sm:px-6 lg:px-8 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-3xl font-bold text-text-light dark:text-text-dark" href="index.html">ELARO</a>
+            <button aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+                <span class="material-symbols-outlined text-muted-light dark:text-muted-dark">dark_mode</span>
+            </button>
         </div>
     </header>
-    <main>
-        <div class="container coming-soon-container">
-            <h1><span class="brand-blue">ELARO</span> is coming soon.</h1>
-            <p>While you wait, learn <span class="brand-blue">How ELARO Works</span>.</p>
-            <a href="how-it-works.html" class="cta-button">Proceed</a>
+    <main class="flex-grow flex flex-col items-center justify-center text-center px-4 relative z-10 -mt-16">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold text-text-light dark:text-text-dark leading-tight">
+                Get ready for <span class="text-primary">ELARO</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-muted-light dark:text-muted-dark max-w-2xl mx-auto leading-relaxed">
+                Our platform is launching soon.
+            </p>
+            <p class="mt-4 text-lg md:text-xl text-muted-light dark:text-muted-dark max-w-2xl mx-auto leading-relaxed">
+                In the meantime, read about <a class="text-primary hover:text-primary-hover font-medium underline decoration-2 decoration-primary/30 underline-offset-4 transition-all hover:decoration-primary" href="how-it-works.html">How ELARO works</a>.
+            </p>
+            <div class="mt-12">
+                <a href="how-it-works.html" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-primary rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark">
+                    Proceed
+                </a>
+            </div>
         </div>
     </main>
-    <div id="footer-placeholder"></div>
+    <footer class="w-full py-8 px-4 sm:px-6 lg:px-8 mt-16 z-10">
+        <div class="container mx-auto text-center text-muted-light dark:text-muted-dark">
+            <div class="flex justify-center items-center space-x-6 mb-4">
+                <a class="hover:text-primary dark:hover:text-primary-hover transition-colors" href="privacy.html">Privacy Policy</a>
+                <a class="hover:text-primary dark:hover:text-primary-hover transition-colors" href="terms.html">Terms of service</a>
+            </div>
+            <p class="text-sm">Copyright © 2025 ELARO. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

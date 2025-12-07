@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Privacy Policy - ELARO</title>
     <meta name="description" content="Privacy Policy for ELARO, the intelligent study assistant.">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://myelaro.com/privacy.html">
@@ -20,197 +20,446 @@
     <meta property="twitter:description" content="Privacy Policy for ELARO, the intelligent study assistant.">
     <meta property="twitter:image" content="https://myelaro.com/focus2.png">
     
-    <!-- Link to Google Fonts for Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Link to the main stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300..800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "Noto Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better reading experience */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        table th, table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .dark table th, .dark table td {
+            border-bottom-color: #2a3441;
+        }
+        table th {
+            font-weight: 600;
+            background-color: #f9fafb;
+        }
+        .dark table th {
+            background-color: #1a2632;
+        }
+        code {
+            background-color: #f3f4f6;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            font-size: 0.875em;
+        }
+        .dark code {
+            background-color: #1a2632;
+        }
+    </style>
 </head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="wordmark-link"><p class="wordmark">ELARO</p></a>
-        </div>
-    </header>
-    <main>
-        <div class="container legal-container">
-            <h1>ELARO — Privacy Policy</h1>
-            
-            <p><strong>Last Updated:</strong> October 15, 2025</p>
-            
-            <h3>Introduction</h3>
-            
-            <p>Welcome to ELARO! Your privacy is a top priority for us. We are committed to being transparent about how we handle your data and have built our Service with a "Privacy by Design" approach.</p>
-            
-            <p>This Privacy Policy applies to all users of the ELARO mobile app, website, and related services worldwide. It explains what personal data we collect, why we collect it, and what rights you have regarding your data.</p>
-            
-            <p>For the purposes of data protection laws, <strong>Alidu Yakubu Suhyini Mansur</strong> is the "data controller" for your personal data. This means we determine how and why your data is processed.</p>
-            
-            <p>By using our Service, you agree to the collection and use of information in accordance with this policy. This Privacy Policy should be read in conjunction with our <strong><a href="https://myelaro.com/terms.html">Terms of Service</a></strong>.</p>
-            
-            <h3>1. What Information We Collect</h3>
-            
-            <p>We adhere to the principle of <strong>Data Minimization</strong>, meaning we only collect the minimum amount of data necessary to provide and improve our Service.</p>
-            
-            <p><strong>a) Information You Provide to Us:</strong></p>
-            <ul>
-                <li><strong>Account & Profile Information:</strong> Your name, email address, password, username, university, program of study, and country.</li>
-                <li><strong>Academic Information:</strong> Details about your courses, assignments, lectures, and study sessions.</li>
-            </ul>
-            
-            <p><strong>b) Information We Collect Automatically:</strong></p>
-            <ul>
-                <li><strong>Device & Technical Information:</strong> Your device's push notification token, platform (iOS/Android), and timezone.</li>
-                <li><strong>Usage & Analytics Data (with your consent):</strong> If you opt-in, we use Mixpanel to collect usage data, such as features used and events like <code>course_created</code>. We may also infer your country from your IP address.</li>
-            </ul>
-            
-            <p><strong>c) Information from Third Parties:</strong></p>
-            <ul>
-                <li><strong>Payment Information:</strong> When you subscribe, our subscription management provider (RevenueCat) and the underlying payment processors (e.g., Apple App Store, Google Play) act as independent data controllers for your payment information. They provide us with basic, non-sensitive transaction data, such as transaction IDs and subscription status. We do not receive or store your full credit card information.</li>
-            </ul>
-            
-            <h3>2. Legal Basis for Processing Your Data</h3>
-            
-            <p>Under data protection law (like GDPR), we must have a legal basis to process your personal data. We rely on the following:</p>
-            
-            <ul>
-                <li><strong>Performance of a Contract:</strong> We process your account, academic, and device information to provide you with the core features of the Service. This is necessary to fulfill our agreement with you.</li>
-                <li><strong>Your Consent:</strong> We rely on your explicit, opt-in consent to:
-                    <ul>
-                        <li>Collect usage analytics via Mixpanel. This is presented as an un-checked choice during registration or in your account settings.</li>
-                        <li>Send you marketing communications. This is also an un-checked choice.</li>
-                    </ul>
-                    You can withdraw your consent for either of these at any time.
-                </li>
-                <li><strong>Legal Obligation:</strong> We are required to retain basic transaction records for up to 7 years to comply with tax and financial laws.</li>
-                <li><strong>Legitimate Interest:</strong> We process data for our legitimate interests, such as monitoring for security threats, fixing bugs via Sentry, and responding to your support requests.</li>
-            </ul>
-            
-            <h3>3. How We Share Your Information</h3>
-            
-            <p>We do not sell your personal data. We only share your information with trusted third-party service providers ("subprocessors") who help us operate our Service.</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Subprocessor</th>
-                        <th>Purpose</th>
-                        <th>Data Shared</th>
-                        <th>Location</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Supabase</strong></td>
-                        <td>Database & Backend</td>
-                        <td>All account/academic data</td>
-                        <td>UK (AWS)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sentry</strong></td>
-                        <td>Error Monitoring</td>
-                        <td>Error logs, device info</td>
-                        <td>United States</td>
-                    </tr>
-                    <tr>
-                        <td><strong>RevenueCat</strong></td>
-                        <td>Subscription Management</td>
-                        <td>Transaction IDs, user IDs</td>
-                        <td>United States</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mixpanel</strong></td>
-                        <td>Analytics (Opt-in)</td>
-                        <td>Pseudonymous usage events</td>
-                        <td>United States</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tawk.to</strong></td>
-                        <td>Customer Support</td>
-                        <td>Support chat messages</td>
-                        <td>United States</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>4. Data Storage, Retention, and Security</h3>
-            
-            <p><strong>a) Data Storage and International Transfers:</strong></p>
-            <p>Your data is primarily stored in the UK. Because we are based in Ghana and use service providers in various locations, your data is transferred internationally. We ensure your data is protected during these transfers through legally approved safeguards:</p>
-            <ul>
-                <li><strong>Ghana to UK/EU:</strong> We rely on our subprocessors' implementation of Standard Contractual Clauses (SCCs).</li>
-                <li><strong>Transfers to the US:</strong> For US-based subprocessors, we rely on their implementation of SCCs and, where applicable, the EU-U.S. Data Privacy Framework.</li>
-            </ul>
-            
-            <p><strong>b) Data Retention:</strong></p>
-            <p>We keep your data only for as long as necessary for the purpose it was collected.</p>
-            <ul>
-                <li><strong>Active Data:</strong> Retained while your account is active.</li>
-                <li><strong>Deleted Account Data:</strong> We provide a <strong>7-day restoration period</strong> for accidental deletion recovery. After that, your data is permanently deleted from our active systems within <strong>30 days</strong>. Data may persist in encrypted disaster-recovery backups for up to <strong>90 days</strong> for security purposes.</li>
-                <li><strong>Transaction Records:</strong> Retained for up to <strong>7 years</strong> to comply with legal obligations.</li>
-            </ul>
-            
-            <p><strong>c) Security:</strong></p>
-            <p>We implement robust security measures, including encryption in transit (TLS) and at rest (AES-256), strict access controls, and secure development practices.</p>
-            
-            <h3>5. Your Data Protection Rights</h3>
-            
-            <p>You have rights over your personal data. These include:</p>
-            
-            <ul>
-                <li><strong>The Right to Access, Rectify, or Erase</strong> your data.</li>
-                <li><strong>The Right to Data Portability</strong> (to download your data).</li>
-                <li><strong>The Right to Withdraw Consent.</strong> If you withdraw consent for analytics, we will stop collecting usage data going forward. If you withdraw consent for marketing, you will stop receiving promotional emails but will continue to receive essential service communications (e.g., security alerts).</li>
-                <li><strong>The Right to Object to Processing</strong> based on our legitimate interests.</li>
-            </ul>
-            
-            <p>You can exercise most of these rights directly within your account settings. For other requests, please contact our Privacy Team at <a href="mailto:legal@myelaro.com">legal@myelaro.com</a>.</p>
-            
-            <p><strong>The Right to Lodge a Complaint:</strong> We would appreciate the opportunity to resolve your concerns directly, but you have the right to lodge a complaint with a data protection authority, such as the <strong>Data Protection Commission of Ghana</strong> or your local supervisory authority.</p>
-            
-            <h3>6. Children's Privacy & Parental Rights</h3>
-            
-            <p>The Service is not intended for children under 13. For users who are under 13, use of the Service is prohibited. For users between 13 and 17, we require them to represent and warrant that they have obtained permission from a parent or legal guardian.</p>
-            
-            <p>Parents and guardians have the right to review, update, or request the deletion of their child's data. To exercise these rights, please contact us at <a href="mailto:support@myelaro.com">support@myelaro.com</a>.</p>
-            
-            <h3>7. Analytics, Cookies, and Tracking Technologies</h3>
-            
-            <p><strong>a) Analytics:</strong></p>
-            <p>We use Mixpanel for analytics based on your explicit consent. We protect your privacy by using pseudonymous identifiers (your user ID is hashed) and not sending personal information like your name or email. You can disable analytics tracking at any time in your app settings.</p>
-            
-            <p><strong>b) Cookies and Similar Technologies:</strong></p>
-            <ul>
-                <li><strong>Mobile App:</strong> Our app does not use cookies but uses local storage to maintain your session and device identifiers for push notifications.</li>
-                <li><strong>Website:</strong> Our website (<code>myelaro.com</code>) may use essential cookies for functionality and third-party cookies for services like our support chat.</li>
-                <li><strong>Do Not Track:</strong> Our Service does not currently respond to "Do Not Track" browser signals, but we offer you direct control over analytics tracking within the app's settings.</li>
-            </ul>
-            
-            <h3>8. Automated Decision-Making</h3>
-            
-            <p>We do not use automated decision-making or profiling that produces legal or similarly significant effects on you. While we use algorithms to schedule reminders, you remain in full control of your study schedule.</p>
-            
-            <h3>9. Data Breach Notification</h3>
-            
-            <p>In the unlikely event of a data breach that poses a high risk to your rights, we will notify the relevant supervisory authority within 72 hours and will notify affected users without undue delay.</p>
-            
-            <h3>10. Third-Party Links</h3>
-            
-            <p>Our Service may contain links to third-party websites or resources. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.</p>
-            
-            <h3>11. Changes to This Privacy Policy</h3>
-            
-            <p>We may update this Privacy Policy. We will notify you of any significant changes by posting the new policy on this page and through an in-app notification.</p>
-            
-            <h3>12. Contact Us</h3>
-            
-            <p>If you have any questions about this Privacy Policy or your data, please contact our <strong>Privacy Team</strong> at:</p>
-            <p><a href="mailto:legal@myelaro.com">legal@myelaro.com</a></p>
-        </div>
-    </main>
-    <div id="footer-placeholder"></div>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display flex flex-col min-h-screen transition-colors duration-200">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-[#101922] px-6 py-4 md:px-10 md:py-3 transition-colors duration-200">
+<div class="flex items-center gap-4 text-[#111418] dark:text-white cursor-pointer" onclick="window.location.href='index.html'">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined !text-[32px]">school</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">ELARO</h2>
+</div>
+<button aria-label="Toggle theme" class="flex items-center justify-center overflow-hidden rounded-full size-10 bg-transparent hover:bg-[#f0f2f4] dark:hover:bg-[#2a3441] text-[#111418] dark:text-white transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center w-full">
+<div class="layout-container flex w-full max-w-[960px] flex-col px-4 py-10 md:px-10 lg:px-20">
+<!-- Page Heading & Meta -->
+<div class="flex flex-col gap-4 pb-8 border-b border-[#e5e7eb] dark:border-[#2a3441] mb-8">
+<h1 class="text-[#111418] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Privacy Policy</h1>
+<p class="text-[#617589] dark:text-[#9ca3af] text-lg font-normal leading-normal max-w-2xl">
+                    We are committed to protecting your privacy and ensuring you have a positive experience on our website and in using our products.
+                </p>
+<div class="flex items-center gap-2 mt-2 text-[#617589] dark:text-[#9ca3af] text-sm font-medium">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Last Updated: October 15, 2025</span>
+</div>
+</div>
+<!-- Content Body -->
+<div class="flex flex-col gap-10">
+<!-- Introduction -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4">Introduction</h2>
+<div class="pl-0">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            Welcome to ELARO! Your privacy is a top priority for us. We are committed to being transparent about how we handle your data and have built our Service with a "Privacy by Design" approach.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            This Privacy Policy applies to all users of the ELARO mobile app, website, and related services worldwide. It explains what personal data we collect, why we collect it, and what rights you have regarding your data.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            For the purposes of data protection laws, <strong>Alidu Yakubu Suhyini Mansur</strong> is the "data controller" for your personal data. This means we determine how and why your data is processed.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            By using our Service, you agree to the collection and use of information in accordance with this policy. This Privacy Policy should be read in conjunction with our <strong><a href="terms.html" class="text-primary hover:text-primary/80 underline">Terms of Service</a></strong>.
+                        </p>
+</div>
+</section>
+<!-- Section 1 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">1</span>
+                        What Information We Collect
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            We adhere to the principle of <strong>Data Minimization</strong>, meaning we only collect the minimum amount of data necessary to provide and improve our Service.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>a) Information You Provide to Us:</strong></p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4 marker:text-primary">
+<li><strong>Account & Profile Information:</strong> Your name, email address, password, username, university, program of study, and country.</li>
+<li><strong>Academic Information:</strong> Details about your courses, assignments, lectures, and study sessions.</li>
+</ul>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>b) Information We Collect Automatically:</strong></p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4 marker:text-primary">
+<li><strong>Device & Technical Information:</strong> Your device's push notification token, platform (iOS/Android), and timezone.</li>
+<li><strong>Usage & Analytics Data (with your consent):</strong> If you opt-in, we use Mixpanel to collect usage data, such as features used and events like <code>course_created</code>. We may also infer your country from your IP address.</li>
+</ul>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>c) Information from Third Parties:</strong></p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body marker:text-primary">
+<li><strong>Payment Information:</strong> When you subscribe, our subscription management provider (RevenueCat) and the underlying payment processors (e.g., Apple App Store, Google Play) act as independent data controllers for your payment information. They provide us with basic, non-sensitive transaction data, such as transaction IDs and subscription status. We do not receive or store your full credit card information.</li>
+</ul>
+</div>
+</section>
+<!-- Section 2 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">2</span>
+                        Legal Basis for Processing Your Data
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            Under data protection law (like GDPR), we must have a legal basis to process your personal data. We rely on the following:
+                        </p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4 marker:text-primary">
+<li><strong>Performance of a Contract:</strong> We process your account, academic, and device information to provide you with the core features of the Service. This is necessary to fulfill our agreement with you.</li>
+<li><strong>Your Consent:</strong> We rely on your explicit, opt-in consent to:
+    <ul class="list-disc pl-5 mt-2 space-y-1 marker:text-primary/50">
+        <li>Collect usage analytics via Mixpanel. This is presented as an un-checked choice during registration or in your account settings.</li>
+        <li>Send you marketing communications. This is also an un-checked choice.</li>
+    </ul>
+    You can withdraw your consent for either of these at any time.
+</li>
+<li><strong>Legal Obligation:</strong> We are required to retain basic transaction records for up to 7 years to comply with tax and financial laws.</li>
+<li><strong>Legitimate Interest:</strong> We process data for our legitimate interests, such as monitoring for security threats, fixing bugs via Sentry, and responding to your support requests.</li>
+</ul>
+</div>
+</section>
+<!-- Section 3 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">3</span>
+                        How We Share Your Information
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            We do not sell your personal data. We only share your information with trusted third-party service providers ("subprocessors") who help us operate our Service.
+                        </p>
+<table>
+<thead>
+<tr>
+<th>Subprocessor</th>
+<th>Purpose</th>
+<th>Data Shared</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supabase</strong></td>
+<td>Database & Backend</td>
+<td>All account/academic data</td>
+<td>UK (AWS)</td>
+</tr>
+<tr>
+<td><strong>Sentry</strong></td>
+<td>Error Monitoring</td>
+<td>Error logs, device info</td>
+<td>United States</td>
+</tr>
+<tr>
+<td><strong>RevenueCat</strong></td>
+<td>Subscription Management</td>
+<td>Transaction IDs, user IDs</td>
+<td>United States</td>
+</tr>
+<tr>
+<td><strong>Mixpanel</strong></td>
+<td>Analytics (Opt-in)</td>
+<td>Pseudonymous usage events</td>
+<td>United States</td>
+</tr>
+<tr>
+<td><strong>Tawk.to</strong></td>
+<td>Customer Support</td>
+<td>Support chat messages</td>
+<td>United States</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 4 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">4</span>
+                        Data Storage, Retention, and Security
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>a) Data Storage and International Transfers:</strong></p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            Your data is primarily stored in the UK. Because we are based in Ghana and use service providers in various locations, your data is transferred internationally. We ensure your data is protected during these transfers through legally approved safeguards:
+                        </p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4 marker:text-primary">
+<li><strong>Ghana to UK/EU:</strong> We rely on our subprocessors' implementation of Standard Contractual Clauses (SCCs).</li>
+<li><strong>Transfers to the US:</strong> For US-based subprocessors, we rely on their implementation of SCCs and, where applicable, the EU-U.S. Data Privacy Framework.</li>
+</ul>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>b) Data Retention:</strong></p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            We keep your data only for as long as necessary for the purpose it was collected.
+                        </p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4 marker:text-primary">
+<li><strong>Active Data:</strong> Retained while your account is active.</li>
+<li><strong>Deleted Account Data:</strong> We provide a <strong>7-day restoration period</strong> for accidental deletion recovery. After that, your data is permanently deleted from our active systems within <strong>30 days</strong>. Data may persist in encrypted disaster-recovery backups for up to <strong>90 days</strong> for security purposes.</li>
+<li><strong>Transaction Records:</strong> Retained for up to <strong>7 years</strong> to comply with legal obligations.</li>
+</ul>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>c) Security:</strong></p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            We implement robust security measures, including encryption in transit (TLS) and at rest (AES-256), strict access controls, and secure development practices.
+                        </p>
+</div>
+</section>
+<!-- Section 5 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">5</span>
+                        Your Data Protection Rights
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            You have rights over your personal data. These include:
+                        </p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4 marker:text-primary">
+<li><strong>The Right to Access, Rectify, or Erase</strong> your data.</li>
+<li><strong>The Right to Data Portability</strong> (to download your data).</li>
+<li><strong>The Right to Withdraw Consent.</strong> If you withdraw consent for analytics, we will stop collecting usage data going forward. If you withdraw consent for marketing, you will stop receiving promotional emails but will continue to receive essential service communications (e.g., security alerts).</li>
+<li><strong>The Right to Object to Processing</strong> based on our legitimate interests.</li>
+</ul>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            You can exercise most of these rights directly within your account settings. For other requests, please contact our Privacy Team at <code>legal@myelaro.com</code>.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            <strong>The Right to Lodge a Complaint:</strong> We would appreciate the opportunity to resolve your concerns directly, but you have the right to lodge a complaint with a data protection authority, such as the <strong>Data Protection Commission of Ghana</strong> or your local supervisory authority.
+                        </p>
+</div>
+</section>
+<!-- Section 6 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">6</span>
+                        Children's Privacy & Parental Rights
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            The Service is not intended for children under 13. For users who are under 13, use of the Service is prohibited. For users between 13 and 17, we require them to represent and warrant that they have obtained permission from a parent or legal guardian.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            Parents and guardians have the right to review, update, or request the deletion of their child's data. To exercise these rights, please contact us at <code>support@myelaro.com</code>.
+                        </p>
+</div>
+</section>
+<!-- Section 7 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">7</span>
+                        Analytics, Cookies, and Tracking Technologies
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>a) Analytics:</strong></p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            We use Mixpanel for analytics based on your explicit consent. We protect your privacy by using pseudonymous identifiers (your user ID is hashed) and not sending personal information like your name or email. You can disable analytics tracking at any time in your app settings.
+                        </p>
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-2"><strong>b) Cookies and Similar Technologies:</strong></p>
+<ul class="list-disc pl-5 space-y-2 text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body marker:text-primary">
+<li><strong>Mobile App:</strong> Our app does not use cookies but uses local storage to maintain your session and device identifiers for push notifications.</li>
+<li><strong>Website:</strong> Our website (<code>myelaro.com</code>) may use essential cookies for functionality and third-party cookies for services like our support chat.</li>
+<li><strong>Do Not Track:</strong> Our Service does not currently respond to "Do Not Track" browser signals, but we offer you direct control over analytics tracking within the app's settings.</li>
+</ul>
+</div>
+</section>
+<!-- Section 8 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">8</span>
+                        Automated Decision-Making
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            We do not use automated decision-making or profiling that produces legal or similarly significant effects on you. While we use algorithms to schedule reminders, you remain in full control of your study schedule.
+                        </p>
+</div>
+</section>
+<!-- Section 9 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">9</span>
+                        Data Breach Notification
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            In the unlikely event of a data breach that poses a high risk to your rights, we will notify the relevant supervisory authority within 72 hours and will notify affected users without undue delay.
+                        </p>
+</div>
+</section>
+<!-- Section 10 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">10</span>
+                        Third-Party Links
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            Our Service may contain links to third-party websites or resources. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.
+                        </p>
+</div>
+</section>
+<!-- Section 11 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">11</span>
+                        Changes to This Privacy Policy
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body">
+                            We may update this Privacy Policy. We will notify you of any significant changes by posting the new policy on this page and through an in-app notification.
+                        </p>
+</div>
+</section>
+<!-- Section 12 -->
+<section>
+<h2 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight mb-4 flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">12</span>
+                        Contact Us
+                    </h2>
+<div class="pl-0 md:pl-11">
+<p class="text-[#111418] dark:text-[#d1d5db] text-base font-normal leading-relaxed font-body mb-4">
+                            If you have any questions about this Privacy Policy or your data, please contact our <strong>Privacy Team</strong> at:
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors" href="mailto:legal@myelaro.com">
+<span class="material-symbols-outlined text-xl">mail</span>
+                            legal@myelaro.com
+                        </a>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-[#101922] border-t border-solid border-[#f0f2f4] dark:border-[#2a3441] py-10 mt-10 transition-colors duration-200">
+<div class="layout-container px-4 md:px-10 lg:px-40 mx-auto max-w-[1200px]">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="flex items-center gap-2 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-primary">school</span>
+<span class="text-lg font-bold">ELARO</span>
+</div>
+<p class="text-[#617589] dark:text-[#6b7280] text-sm">© 2025 ELARO. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="text-[#111418] dark:text-white text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors underline decoration-2 decoration-primary underline-offset-4" href="privacy.html">Privacy Policy</a>
+<a class="text-[#617589] dark:text-[#9ca3af] text-sm font-medium hover:text-[#111418] dark:hover:text-white transition-colors" href="terms.html">Terms of Service</a>
+</div>
+<div class="flex gap-4">
+<button class="size-8 rounded-full bg-[#f0f2f4] dark:bg-[#1a2632] flex items-center justify-center text-[#617589] dark:text-[#9ca3af] hover:text-primary hover:bg-primary/10 transition-all">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</button>
+<button class="size-8 rounded-full bg-[#f0f2f4] dark:bg-[#1a2632] flex items-center justify-center text-[#617589] dark:text-[#9ca3af] hover:text-primary hover:bg-primary/10 transition-all">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple theme toggle logic
+        const toggleButton = document.querySelector('button[aria-label="Toggle theme"]');
+        const htmlElement = document.documentElement;
+        const iconSpan = toggleButton.querySelector('span');
+
+        toggleButton.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                iconSpan.textContent = 'dark_mode';
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                iconSpan.textContent = 'light_mode';
+            }
+        });
+    </script>
 </body>
 </html>

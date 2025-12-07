@@ -3,97 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELARO - Never Forget What You Study</title>
-    <meta name="description" content="ELARO is a study assistant that helps students remember what they study, and never miss an assignment or lecture.">
+    <title>ELARO - Never Forget What You Studied</title>
+    <meta name="description" content="ELARO helps you never forget what you studied. Never miss an assignment or lecture again.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://myelaro.com/">
-    <meta property="og:title" content="ELARO - Never Forget What You Study">
-    <meta property="og:description" content="The intelligent study assistant that ensures you never forget.">
+    <meta property="og:title" content="ELARO - Never Forget What You Studied">
+    <meta property="og:description" content="Never forget what you studied. ELARO intelligently manages your academic life so you can ace your exams without the stress.">
     <meta property="og:image" content="https://myelaro.com/focus2.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://myelaro.com/">
-    <meta property="twitter:title" content="ELARO - Never Forget What You Study">
-    <meta property="twitter:description" content="The intelligent study assistant that ensures you never forget.">
+    <meta property="twitter:title" content="ELARO - Never Forget What You Studied">
+    <meta property="twitter:description" content="Never forget what you studied. ELARO intelligently manages your academic life so you can ace your exams without the stress.">
     <meta property="twitter:image" content="https://myelaro.com/focus2.png">
-    <!-- Cormorant Garamond for headings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- Satoshi from Fontshare -->
-    <link rel="preconnect" href="https://api.fontshare.com">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-    <!-- Link to our stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2C5EFF",
+                        "primary-light": "#5A7FFF",
+                        "primary-dark": "#1E42CC",
+                        "accent": "#4ECDC4", 
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        display: ["'Outfit'", "sans-serif"],
+                        body: ["'Plus Jakarta Sans'", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        'xl': "1rem",
+                        '2xl': "1.5rem",
+                        '3xl': "2rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 20px rgba(44, 94, 255, 0.5)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(44, 94, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dark .bg-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 7s ease-in-out infinite 1s;
+        }
+        .animate-float-slow {
+            animation: float 8s ease-in-out infinite 2s;
+        }
+    </style>
 </head>
-<body>
-
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="wordmark-link"><p class="wordmark">ELARO</p></a>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-body transition-colors duration-300 overflow-x-hidden selection:bg-primary selection:text-white">
+    <nav class="fixed w-full z-50 top-0 left-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+                            <span class="material-icons-round text-2xl">school</span>
+                        </div>
+                        <span class="font-display font-bold text-2xl tracking-tight text-slate-900 dark:text-white">ELARO</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+                        <span class="material-icons-round dark:hidden">dark_mode</span>
+                        <span class="material-icons-round hidden dark:block text-yellow-400">light_mode</span>
+                    </button>
+                    <a class="hidden md:block text-slate-900 dark:text-white font-semibold hover:text-primary dark:hover:text-primary transition-colors" href="coming-soon.html">Log in</a>
+                    <a class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5" href="coming-soon.html">
+                        Get Started
+                    </a>
+                </div>
+            </div>
         </div>
-    </header>
-
-    <main>
-        <!-- Section 1: Revise -->
-        <section class="feature-section fade-in-right">
-            <div class="container section-container">
-                <div class="section-content">
-                    <h1 class="section-headline">Never forget to</h1>
-                    <h2 class="section-text">revise what you studied.</h2>
-                    <div class="section-image-wrapper">
-                        <img src="revise.png" alt="Revise your studies with ELARO">
+    </nav>
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none"></div>
+        <div class="absolute top-20 right-0 w-[800px] h-[800px] bg-primary-light/10 dark:bg-primary-light/20 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/4"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/10 dark:bg-accent/20 rounded-full blur-3xl -z-10 -translate-x-1/3 translate-y-1/4"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary font-semibold text-sm mb-6 border border-primary/20">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        New: AI Revision Scheduler
+                    </div>
+                    <h1 class="font-display font-extrabold text-5xl lg:text-7xl leading-[1.1] text-slate-900 dark:text-white mb-6">
+                        Focus on <span class="text-primary relative inline-block">
+                            Studying
+                            <svg class="absolute w-full h-3 -bottom-1 left-0 text-accent opacity-60" preserveAspectRatio="none" viewBox="0 0 100 10">
+                                <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path>
+                            </svg>
+                        </span>, While we focus on remembering.
+                    </h1>
+                    <p class="text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-lg">
+                        Never miss an assignment or lecture again. ELARO intelligently manages your academic life so you can ace your exams without the stress.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a class="group flex items-center justify-center gap-2 bg-accent hover:opacity-90 text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_10px_20px_-5px_rgba(78,205,196,0.4)] transition-all hover:-translate-y-1" href="coming-soon.html">
+                            Start for Free
+                            <span class="material-icons-round group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+                        <div class="flex -space-x-3">
+                            <img alt="Student avatar" class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDqkCqCIla1kjxJaRZBOUoq-CFmOoonrh9HAtPl4-gGYJeS3vKrLgzoFEDelZCIPPgNHy5jPWmBDYm-ABYsHT_BjDTIW8MlU4vpjf1Q-C0_51zLpw2CWAlP6cW6ae0WcDkq_HQMUecZ3xui4toaGnJWp0YGTa_5vzel7i5l7Mfqs5sCE-XodmvJdmNE9xEwUA7CCV6y4dKLDGRMwhgfGqArw0Gc-543XGZ80EhMltQ7WF4a8Rg-YEI8rBBUPxPQi_lDU7_9HW9D9xW"/>
+                            <img alt="Student avatar" class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4kqwaCmFvfG5uye2HuaaDp_ydK2kDjso5eKZuEvEub7yY8RyTj-IdPp8kCvblXaJ0OVeyzjGJ8FBmeBOUSrZMmtswtfYAzc443x8acClyhthvdiv4Hh6KJATCTnPIBdj1OdiyQFRZHJpfMoOREAceBd6fJgDnLbwOollxfq_ogo6lGIppkKZuiPzfo4xlcVvABStWhDdnJJBYZQrBI14nbhONJkCwCOT2VfxzEn5gxIdSRa7oML3hMc34hnW0MFxR5-MnaMU7ypQz"/>
+                            <img alt="Student avatar" class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqAstP74VgxgtbGky_DE068esBW7rCiuv15P3JoHZt7EjTmQtK2_ClQPJuTt6qhACrY-5cva6uRMqD_FTFeJxLgEfktv7iYwAh6rEZZf1tk9tvePGPu9JB2YSYDGlmeyB_n0SuDWZab78oxAULoSv0C6V3px5k5j4wsJfqsHU0eZIPXEHiZumSny-8lfupndZFvGWO7vIEHK9HCabgNqdZkDrcktg-d89S2X8FP9AH-8srT76IYFMWnWgoNeCBVAn8rrUCkjSmZZGm"/>
+                        </div>
+                        <p>Trusted by students worldwide</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Submit -->
-        <section class="feature-section fade-in-left">
-            <div class="container section-container">
-                <div class="section-content">
-                    <h1 class="section-headline">Never forget to</h1>
-                    <h2 class="section-text">submit an assignment.</h2>
-                    <div class="section-image-wrapper">
-                        <img src="submit.png" alt="Never miss an assignment with ELARO">
+                <div class="relative h-[600px] w-full hidden lg:block perspective-1000">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white dark:bg-surface-dark rounded-3xl shadow-soft dark:shadow-none border border-slate-100 dark:border-slate-700 p-6 z-20 animate-float">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Today's Focus</h3>
+                            <span class="bg-primary/10 text-primary-dark dark:text-primary text-xs font-bold px-2 py-1 rounded-lg">Sep 24</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+                                <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0 text-blue-600 dark:text-blue-400">
+                                    <span class="material-icons-round text-xl">menu_book</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">Physics Revision</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Chap 4: Thermodynamics</p>
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mt-2 overflow-hidden">
+                                        <div class="bg-primary h-full w-3/4 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+                                <div class="w-10 h-10 rounded-lg bg-pink-100 dark:bg-pink-900/50 flex items-center justify-center flex-shrink-0 text-pink-600 dark:text-pink-400">
+                                    <span class="material-icons-round text-xl">assignment</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">Math Assignment</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Due in 3 hours</p>
+                                    <span class="inline-block mt-2 px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-[10px] font-bold rounded">URGENT</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs font-medium text-slate-400">Daily Progress</span>
+                            <span class="text-sm font-bold text-primary-dark dark:text-primary">84%</span>
+                        </div>
                     </div>
+                    <div class="absolute top-10 right-10 w-48 bg-white dark:bg-surface-dark rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 p-4 z-10 animate-float-delayed">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-500">
+                                <span class="material-icons-round text-sm">calendar_today</span>
+                            </div>
+                            <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Upcoming</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full"></div>
+                            <div class="h-2 w-2/3 bg-slate-100 dark:bg-slate-700 rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-20 left-0 w-56 bg-white dark:bg-surface-dark rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 p-4 z-30 animate-float-slow transform rotate-[-4deg]">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Reminder</span>
+                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img alt="Professor" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClhgxvG7CuUhkUBupZBX8utbbpTnWTdwnWWNT7fW19kb8nmpreTjViFMLE8JyeeBe_HEzk-FB7mcO90d66fHBLpEqp1KUZzjZiYG9P2SpGW519fqZLbKUt7vMpSSTrpzYNOfVia9v7VbLtetfThT-3A8gYZor6KI2zM-yFfh531M0t9tEITeZ7jSW3HiisZT5Zg0cSdS_L2R3IQ1Pipz7pHI1eHoR3KlKixTrkXmincWZw8smJrd9OkMEmeaD0t4oz2kIBbfXphltz"/>
+                            <div>
+                                <p class="text-sm font-bold text-slate-800 dark:text-slate-100">Dr. Smith Lecture</p>
+                                <p class="text-xs text-slate-500">Room 304 • 10:00 AM</p>
+                            </div>
+                        </div>
+                        <button class="mt-3 w-full py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">View Details</button>
+                    </div>
+                    <div class="absolute top-20 left-10 w-16 h-16 bg-white dark:bg-surface-dark rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center z-10 animate-float">
+                        <span class="material-icons-round text-3xl text-accent">notifications_active</span>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-slate-200 dark:border-slate-700 rounded-full -z-10"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-slate-200 dark:border-slate-700 rounded-full -z-10 border-dashed"></div>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 3: Lecture -->
-        <section class="feature-section fade-in-right">
-            <div class="container section-container">
-                <div class="section-content">
-                    <h1 class="section-headline">Never forget to</h1>
-                    <h2 class="section-text">attend a lecture.</h2>
-                    <div class="section-image-wrapper">
-                        <img src="Lecture.png" alt="Never miss a lecture with ELARO">
+        </div>
+    </section>
+    <section class="py-20 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-primary-dark dark:text-primary font-bold tracking-wide uppercase text-sm">Everything you need</span>
+                <h2 class="mt-2 text-3xl lg:text-4xl font-display font-bold text-slate-900 dark:text-white">
+                    Master your academic schedule with ease
+                </h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-400 text-lg">
+                    We've built the ultimate toolkit for students who want to stay organized and productive without the hassle.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 hover:border-primary/30 dark:hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-round text-3xl text-primary">schedule</span>
                     </div>
+                    <h3 class="text-xl font-display font-bold text-slate-900 dark:text-white mb-3">Smart Study Schedules</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Input your exam dates, and ELARO automatically generates a balanced revision timetable tailored to your subjects.
+                    </p>
+                </div>
+                <div class="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 hover:border-primary/30 dark:hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-round text-3xl text-accent">notifications_none</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-slate-900 dark:text-white mb-3">Intelligent Reminders</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Get nudged at the perfect time. Spaced repetition reminders help you retain information longer and more effectively.
+                    </p>
+                </div>
+                <div class="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 hover:border-primary/30 dark:hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-round text-3xl text-primary-dark">assignment_turned_in</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-slate-900 dark:text-white mb-3">Deadline Tracking</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Visualize all your upcoming assignments and projects in one place. Never lose marks for a late submission again.
+                    </p>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 4: Finale -->
-        <section class="feature-section feature-section-finale fade-in-left">
-            <div class="container section-container">
-                <div class="section-content">
-                    <h1 class="section-headline">We handle the remembering</h1>
-                    <h2 class="section-text">so you can focus on the learning.</h2>
-                    <div class="section-image-wrapper">
-                        <img src="focus.png" alt="ELARO helps you focus on learning">
-                    </div>
-                    <a href="coming-soon.html" class="cta-button">Try for free</a>
+        </div>
+    </section>
+    <section class="py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative bg-primary rounded-3xl p-10 lg:p-16 text-center overflow-hidden shadow-2xl shadow-primary/30">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+                <h2 class="relative z-10 text-3xl lg:text-5xl font-display font-bold text-white mb-6">
+                    Ready to ace your semester?
+                </h2>
+                <p class="relative z-10 text-blue-100 text-lg lg:text-xl mb-4 max-w-2xl mx-auto">
+                    Join students who have transformed their grades with ELARO.
+                </p>
+                <p class="relative z-10 text-blue-100 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+                    Start your free 14-day trial today.
+                </p>
+                <div class="relative z-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="coming-soon.html" class="bg-white text-primary-dark font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-slate-100 transition-colors">
+                        Get Started for Free
+                    </a>
+                </div>
+                <p class="relative z-10 mt-6 text-sm text-blue-200">No credit card required.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-white dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+                            <span class="material-icons-round text-lg">school</span>
+                        </div>
+                        <span class="font-display font-bold text-xl text-slate-900 dark:text-white">ELARO</span>
+                    </a>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+                    <a class="hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
+                    <a class="hover:text-primary transition-colors" href="terms.html">Terms of Service</a>
+                    <p>© 2025 ELARO. All rights reserved.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="sr-only">Twitter</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+                    <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="sr-only">Instagram</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 2.37c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path></svg></a>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <div id="footer-placeholder"></div>
-
-    <script src="script.js"></script>
+        </div>
+    </footer>
 </body>
 </html>
